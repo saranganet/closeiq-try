@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-bg-dark: #050507;
+    --color-panel-dark: #0c0d12;
+    --color-surface: #11131a;
+    --color-accent-blue: #2563eb;
+    --color-accent-azure: #3b82f6;
+  }
+
+  /* Strict Zero Rounded Corners for CloseIQ */
+  *, *::before, *::after {
+    border-radius: 0px !important;
+  }
+
+  body {
+    background-color: #050507;
+    color: #f8fafc;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* CloseIQ Precision Matte Panels */
+.closeiq-panel {
+  background: #0c0d12;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.closeiq-card {
+  background: #11131a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.closeiq-card:hover {
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+.glass-panel {
+  background: #0c0d12;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card {
+  background: #11131a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card:hover {
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+/* CloseIQ Pill Navigation & Badges */
+.nav-pill {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050507;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Audio Waveform Pulsing Animation */
+@keyframes pulse-wave {
+  0%, 100% { transform: scaleY(0.25); }
+  50% { transform: scaleY(1); }
+}
+
+.animate-wave-1 { animation: pulse-wave 1.2s infinite ease-in-out; }
+.animate-wave-2 { animation: pulse-wave 0.8s infinite ease-in-out 0.2s; }
+.animate-wave-3 { animation: pulse-wave 1.4s infinite ease-in-out 0.4s; }
+.animate-wave-4 { animation: pulse-wave 0.9s infinite ease-in-out 0.1s; }
+.animate-wave-5 { animation: pulse-wave 1.1s infinite ease-in-out 0.3s; }
