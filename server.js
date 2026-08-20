@@ -125,11 +125,8 @@ const handleDealResearch = async (req, res) => {
       ]);
     };
 
-    // Priority 1: Google Gemini API (gemini-2.5-flash) with 12s timeout
-    if (geminiApiKey) {
-      try {
-        const ai = new GoogleGenAI({ apiKey: geminiApiKey });
-        const researchPrompt = `
+    // Define researchPrompt
+    const researchPrompt = `
 You are an elite enterprise sales strategist and buyer persona researcher.
 Perform authentic, highly-accurate intelligence gathering and sales strategy synthesis for an upcoming high-stakes sales call.
 
@@ -775,7 +772,6 @@ ${memoryContext || ''}
               max_tokens: 280,
               stream: true,
             }),
-          });    }),
           });
 
           if (groqResponse.ok && groqResponse.body) {
