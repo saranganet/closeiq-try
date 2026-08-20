@@ -896,9 +896,12 @@ app.post('/api/tts/speak', async (req, res) => {
 // Serve static client assets in production
 app.use(express.static(path.join(__dirname, 'dist')));
 
-// SPA Wildcard Route (non-API paths serve index.html)
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+// Express 5 compatible SPA fallback
+app.use((req, res, next) => {
+  if (req.method === 'GET' && !req.path.startsWith('/api')) {
+    return res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+  }
+  next();
 });
 
 app.listen(PORT, () => {
